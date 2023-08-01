@@ -9,7 +9,7 @@ import { postError, pImp } from '/public/jet.js';
 
 
 
-const tickTime = 600;
+const tickTime = 60;
 const commandQueue = []
 const gameStats = {
   playerLocationX: 0,
@@ -20,7 +20,7 @@ const gameStats = {
 let map = [];
 const mapCallbacks = {
   "player": { code: 10, callback: () => true, icon: "prince" },
-  "free-space": { code: 11, callback: () => true, icon: "" },
+  "free-space": { code: 11, callback: () => true, icon: "free-space" },
   "wall": { code: 12, callback: () => {
     const msg = "Can not go through wall!";
     postError(msg)
@@ -752,7 +752,12 @@ const loadEvent = () => {
           window[`${key}`] = data[`${key}`];
         }
       }
+      const containerElement = document.getElementById('container');
+      const lightsElement = document.getElementById('lights');
 
+      // Add a class name to the element
+      containerElement.classList.add(`class${paramLevel}`);
+      lightsElement.classList.add(`bgclassLevel${paramLevel}`)
       document.getElementById("prestyle").innerHTML = `
       #container > div.princess{
         background-image: url("/public/images/princess${paramLevel}.gif");

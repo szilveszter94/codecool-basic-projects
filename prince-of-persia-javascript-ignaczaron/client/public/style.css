@@ -12,6 +12,15 @@ body *::after {
   font-family: inherit;
 }
 
+@keyframes moveRightLeft {
+  0%, 100% {
+    left: 0;
+  }
+  50% {
+    left: 200px;
+  }
+}
+
 ol,
 ul,
 li {
@@ -78,22 +87,35 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  border: 10px solid rgba(255,255,255,.3);
+  background-color: rgba(0, 46, 52, 0.7);
+  border: 10px solid rgba(0, 127, 139, 0.3);
   overflow: hidden;
 }
 
 #container > div.wall{
-  box-shadow: inset 0 0 10px rgba(255,255,255,.6);
-  background-color: rgba(255,255,255,.3);
+  box-shadow: inset 0 0 10px rgba(21, 21, 21, 0.6);
+  background-color: rgba(0, 15, 9, 0.5);
 }
+
+body.win #container > div:not(.wall){
+  border: none;
+}
+
 #container > div:not(.wall){
-  background-color: white;
+  border: solid 1px rgba(53, 45, 45, 0.3);
+  background-color: rgba(53, 255, 157, 0.6);
 }
+
 #container > div{
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 1s, transform 2s;
+}
+
+body.win #container {
+  background-color: transparent;
+  border: none;
 }
 
 #container > div.computer{
@@ -121,10 +143,9 @@ body {
   bottom: 0;
   text-align: center;
   font-size: 36px;
-  text-align: center;
-  line-height: 100px;
-  color: wheat;
-  text-shadow: 10px ;
+  line-height: 70px;
+  color: rgba(255, 255, 255);
+  text-shadow: 2px 2px 2px rgb(60, 0, 1);
 }
 
 body.win #container > div:not(.prince):not(.princess){
@@ -136,9 +157,108 @@ body.win #container > div.princess{
   transform-origin: center center;
 }
 
-body.win #container > div.princess{
-  transform: scale(3);
+body.win .class7 > div{
+  position: relative;
+  width: 40px;
+  height: 40px;
 }
-body.win #container > div.prince{
-  transform: scale(3);
+
+body.win .class8 > div{
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+body.win .class7 > div.princess{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0) translate(-1%, -1%);
+}
+
+body.win .class7 > div.prince{
+  transform: scale(0) translateX(-150px) translateY(15px)
+}
+
+body.win > #container.class6 div.princess{
+  background-image: url("./images/mario-princess-win.gif");
+  transform: scale(8) translateX(-15px) translateY(-10px);
+}
+
+
+body.win > #container.class6 div.prince {
+  background-image: url("./images/mario-win.gif");
+  transform: scale(8) translateX(-35px) translateY(-5px) rotate(-720deg);
+}
+
+body.win .class8 > div.princess{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(10) translate(-1%, -2%);
+}
+body.win .class8 > div.prince{
+  transform: scale(0) translateX(-150px) translateY(15px)
+}
+
+body.win .bgclassLevel6 {
+  background-color:black;
+  background-image: url("./images/pxfuel.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.win .bgclassLevel6::before {
+  content: "";
+  background-image: url("./images/chris-pratt-wow.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20%;
+  height: 28%;
+  z-index: 1;
+}
+
+
+body.win .bgclassLevel7::before {
+  content: "";
+  background-image: url("./images/uma.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 22%;
+  height: 24%;
+  z-index: 1;
+}
+
+body.win .bgclassLevel7 {
+  background-color:rgb(40, 0, 18);
+  background-image: url("./images/dancing.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.win .bgclassLevel8 {
+  background-color:rgb(12, 1, 1);
+  background-image: url("./images/level8bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+body.win .bgclassLevel8::before {
+  content: "";
+  background-image: url("./images/khaby-khabane.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 15%;
+  height: 30%;
+  z-index: 1;
 }
