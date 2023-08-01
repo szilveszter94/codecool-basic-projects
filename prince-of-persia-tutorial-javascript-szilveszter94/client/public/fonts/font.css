@@ -1,0 +1,6 @@
+@font-face {
+    font-family:"Alagard";
+    src:url("alagard.woff2") format("woff2"),url("alagard.woff") format("woff"),url("alagard.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+        

@@ -1,0 +1,144 @@
+body,
+body *,
+body *::before,
+body *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  font-family: inherit;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a img {
+  border: none;
+}
+
+input,
+textarea,
+select,
+button,
+input {
+  appearance: none;
+  border-radius: 0;
+}
+
+button,
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+[readonly]+span,
+[readonly] {
+  pointer-events: none;
+  opacity: .4;
+}
+
+body {
+  font-family: "Alagard";
+  background-image: url("/public/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+#lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+#container {
+  box-sizing: content-box;
+  display: grid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border: 10px solid rgba(255,255,255,.3);
+  overflow: hidden;
+}
+
+#container > div.wall{
+  box-shadow: inset 0 0 10px rgba(255,255,255,.6);
+  background-color: rgba(255,255,255,.3);
+}
+#container > div:not(.wall){
+  background-color: white;
+}
+#container > div{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1s, transform 2s;
+}
+
+#container > div.computer{
+  background-image: url("/public/images/computer.gif");
+}
+#container > div.fire{
+  background-image: url("/public/images/fire.gif");
+}
+#container > div.potion{
+  background-image: url("/public/images/potion.gif");
+}
+#container > div.dollar{
+  background-image: url("/public/images/dollar.gif");
+}
+#container > div.keyboard{
+  background-image: url("/public/images/keyboard.gif");
+}
+#container > div.cane{
+  background-image: url("/public/images/cane.gif");
+}
+
+#messageBox {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  font-size: 36px;
+  text-align: center;
+  line-height: 100px;
+  color: wheat;
+  text-shadow: 10px ;
+}
+
+body.win #container > div:not(.prince):not(.princess){
+  opacity: 0;
+}
+body.win #container > div.prince,
+body.win #container > div.princess{
+  background-color: transparent;
+  transform-origin: center center;
+}
+
+body.win #container > div.princess{
+  transform: scale(3);
+}
+body.win #container > div.prince{
+  transform: scale(3);
+}
